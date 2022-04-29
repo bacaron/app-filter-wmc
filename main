@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+
+
+
+
+surfaces=`jq -r '.surfaces' config.json`
+[ ! -d wmc ] && mkdir -p wmc wmc/surfaces wmc/tracts && cp -R ${surfaces}/* ./wmc/surfaces/
