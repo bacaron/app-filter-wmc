@@ -104,3 +104,6 @@ def main():
 
     # create visualizer jsons
     filter_visualizer_jsons(track.streamlines,names,new_indices)
+
+if __name__ == '__main__':
+    main()

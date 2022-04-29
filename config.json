@@ -1,0 +1,6 @@
+{
+    "classification": "/home/brad/Desktop/app-filter-wmc/data/wmc/classification.mat",
+    "tracts": "/home/brad/Desktop/app-filter-wmc/data/wmc/tracts",
+    "surfaces": "/home/brad/Desktop/app-filter-wmc/data/wmc/surfaces",
+    "index": "/home/brad/Desktop/app-filter-wmc/data/labels/index.csv"
+}
