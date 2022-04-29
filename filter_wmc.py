@@ -103,7 +103,7 @@ def main():
     track = nib.streamlines.load(config['track'])
 
     # create visualizer jsons
-    filter_visualizer_jsons(track.streamlines,names,new_indices)
+    filter_visualizer_jsons(track.streamlines,names,new_indices,outdir)
 
 if __name__ == '__main__':
     main()
