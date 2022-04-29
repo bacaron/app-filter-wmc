@@ -89,7 +89,7 @@ def main():
     classification, names, indices = load_classification_structure(config['classification'])
 
     # labels
-    labels = load_labels(config['index']))
+    labels = load_labels(config['index'])
 
     # filter classification structure
     classification, new_indices = filter_wmc(labels,classification,indices)
