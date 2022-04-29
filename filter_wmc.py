@@ -53,7 +53,7 @@ def filter_visualizer_jsons(streamlines,names,new_indices,outdir):
 
         streams = np.zeros([len(stm_idxs)],dtype=object)
         for e in range(len(streams)):
-            streams[e] = np.transpose(streamlines[stm_idxs][e]).round(2)
+            streams[e] = np.transpose(streams[stm_idxs][e]).round(2)
 
         color=list(cm.nipy_spectral(i))[0:3]
         count = len(stm_idxs)
