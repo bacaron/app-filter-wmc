@@ -3,6 +3,40 @@
 
 # Filter WMC Datatype
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Removes from each tract of a white matter classification (WMC) the streamlines rejected by tractogram filtering such as SIFT or COMMIT, using a binary streamline label file.**
+
+Multiplies the WMC streamline assignments by a binary keep/remove label per streamline of the original tractogram, so tracts keep only the streamlines that survived filtering, and regenerates the per-tract JSON files for visualisation. Use it after running a tractogram filtering algorithm on a tractogram that was already segmented. The labels must index the same tractogram used to build the WMC.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/wmc` · `neuro/labels` · `neuro/track/tck` |
+| 📤 **Outputs** | `neuro/wmc` |
+| 🐳 **Container** | `brainlife/dipy:1.4.1` |
+| ⚙️ **Resources** | 8 CPUs · 40 GB memory · 3 h walltime |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.621](https://doi.org/10.25663/brainlife.app.621) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `wmc` | `neuro/wmc` | yes | White matter classification (classification.mat, tract JSONs and surfaces) built on the tractogram. |
+| `labels` | `neuro/labels` (binary) | yes | Binary label per streamline of the tractogram (index.csv): 1 keeps it, 0 removes it. |
+| `track` | `neuro/track/tck` | yes | Needed to generate files for visualization purposes |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `wmc` | `neuro/wmc` | Filtered white matter classification with updated per-tract visualisation files. |
+
+📚 **References used by this App:**
+- Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+- Garyfallidis E, et al. DIPY, a library for the analysis of diffusion MRI data. Front Neuroinform 8:8 (2014). [doi:10.3389/fninf.2014.00008](https://doi.org/10.3389/fninf.2014.00008)
+
+<!-- brainlife-app:end -->
+
 This app will filter streamline indices found in the neuro/wmc datatype based on a labels datatype containing binary indices for the input tractogram used to generate the neuro/wmc datatype. This app should be performed in cases where a tractogram filtering algorithm like SIFT or COMMIT was used following the segmentation of white matter tracts. The goal is to prune out the streamlines from each tract that didn't survive those tractogram filtering algorithms.
 
 ### Authors
